@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Dialog Box
+        </title>
+    </head>
+    <style>
+        .myModal {
+            display: none;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            opacity: 0.4;
+            padding-top: 100px;
+            z-index: 1;
+            overflow: auto;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+        }
+        .modalContent {
+            background-color: #fefefe;
+            margin: auto;
+            width: 80%;
+        }
+        .close {
+            padding: 6px;
+            color: black;
+        }
+        .close:hover,.close:focus {
+            cursor: pointer;
+        }
+    </style>
+    <body>
+        <button onclick="openModal()">Open Dialog Box</button>
+        <div id="modal" class="myModal">
+            <div id="modalContent" class="modalContent">
+                <span onclick="closeModal()" id="close" class="close">&times;</span>
+                <p>Welcome</p>
+                <button onclick=closeModal() type="submit">Ok</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        function openModal() {
+            const modal = document.getElementById("modal")
+            modal.style.display = "block";
+        }
+        function closeModal() {
+            const modal = document.getElementById("modal")
+            modal.style.display = "none";
+        }
+        const modal = document.getElementById("modal")
+        window.onclick = function(event) {
+            if(event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+    </script>
+</html>
